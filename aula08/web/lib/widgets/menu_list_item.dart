@@ -17,25 +17,33 @@ class MenuListItem extends StatefulWidget {
 }
 
 class _MenuListItemState extends State<MenuListItem> {
+  bool isHovered = false;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: widget.onTap,
-      child: Container(
-        padding: EdgeInsets.all(8),
-        decoration: BoxDecoration(),
-        child: Row(
-          spacing: 8,
-          children: [
-            Icon(
-              widget.icon,
-              color: Colors.white,
-            ),
-            Text(
-              widget.text,
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
+    return MouseRegion(
+      onHover: (value) {
+        isHovered = true;
+      },
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: Container(
+          padding: EdgeInsets.all(8),
+          decoration:
+              BoxDecoration(color: isHovered ? Color(0xFF708064) : null),
+          child: Row(
+            spacing: 8,
+            children: [
+              Icon(
+                widget.icon,
+                color: Colors.white,
+              ),
+              Text(
+                widget.text,
+                style: TextStyle(color: Colors.white),
+              ),
+            ],
+          ),
         ),
       ),
     );
