@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:web/utils/turn_enum.dart';
 
 import '../models/class.dart';
 import '../utils/page_enum.dart';
+import '../utils/turn_enum.dart';
 import '../widgets/sidebar.dart';
 
 class ClassPage extends StatefulWidget {

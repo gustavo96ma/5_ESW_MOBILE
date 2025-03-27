@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'pages/home_page.dart';
+import 'pages/scheduling_page.dart';
 import 'widgets/button.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -33,7 +33,7 @@ class _MainAppState extends State<MainApp> {
           final Session? session = Supabase.instance.client.auth.currentSession;
 
           if (session != null && !session.isExpired) {
-            return HomePage();
+            return SchedulingPage();
           }
 
           return LayoutBuilder(builder: (context, constraints) {
@@ -143,7 +143,7 @@ class _MainAppState extends State<MainApp> {
                                         Navigator.of(context).push(
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const HomePage()));
+                                                    const SchedulingPage()));
                                       } on AuthApiException catch (e) {
                                         showDialog<String>(
                                           context: context,
@@ -187,7 +187,7 @@ class _MainAppState extends State<MainApp> {
                                         Navigator.of(context).push(
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const HomePage()));
+                                                    const SchedulingPage()));
                                       } on AuthApiException catch (e) {
                                         showDialog<String>(
                                           context: context,

@@ -4,13 +4,14 @@ class MenuListItem extends StatefulWidget {
   final String text;
   final void Function() onTap;
   final IconData icon;
+  final bool isSelected;
 
   const MenuListItem({
     super.key,
     required this.text,
     required this.onTap,
     required this.icon,
-    required bool isSelected,
+    required this.isSelected,
   });
 
   @override
@@ -18,6 +19,10 @@ class MenuListItem extends StatefulWidget {
 }
 
 class _MenuListItemState extends State<MenuListItem> {
+  bool shouldPaint() {
+    return isHovered || widget.isSelected;
+  }
+
   bool isHovered = false;
   @override
   Widget build(BuildContext context) {
@@ -38,7 +43,7 @@ class _MenuListItemState extends State<MenuListItem> {
         child: Container(
           padding: EdgeInsets.all(8),
           decoration:
-              BoxDecoration(color: isHovered ? Color(0xff9bb788) : null),
+              BoxDecoration(color: shouldPaint() ? Color(0xff9bb788) : null),
           child: Row(
             spacing: 8,
             children: [

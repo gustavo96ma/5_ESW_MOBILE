@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web/pages/scheduling_page.dart';
 import 'package:web/utils/page_enum.dart';
 
 import '../pages/class_page.dart';
@@ -6,7 +7,10 @@ import 'menu_list_item.dart';
 
 class Sidebar extends StatefulWidget {
   final PageEnum selectedPage;
-  Sidebar({super.key, required this.selectedPage});
+  const Sidebar({
+    super.key,
+    required this.selectedPage,
+  });
 
   @override
   State<Sidebar> createState() => _SidebarState();
@@ -37,7 +41,10 @@ class _SidebarState extends State<Sidebar> {
               MenuListItem(
                   isSelected: widget.selectedPage == PageEnum.schedulingPage,
                   text: 'Ensalamento',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SchedulingPage()));
+                  },
                   icon: Icons.door_back_door_outlined),
               MenuListItem(
                   isSelected: widget.selectedPage == PageEnum.classPage,
