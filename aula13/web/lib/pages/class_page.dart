@@ -43,6 +43,7 @@ class _ClassPageState extends State<ClassPage> {
                   ),
                   onPressed: () {
                     showDialog(
+                        barrierDismissible: false,
                         useSafeArea: true,
                         context: context,
                         builder: (context) {
